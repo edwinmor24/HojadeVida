@@ -1,0 +1,191 @@
+body { 
+margin: 0;
+  padding: 0;
+  background: #f4f5f7;  /* gris muy claro */
+  color: #2e2e2e;       /* gris oscuro elegante */
+  font-family: "Roboto", sans-serif;}
+
+.name{
+   width: 100%;
+  height: 330px;
+  background: #2c3e50;  /* azul grisáceo oscuro */
+  transform: skewY(-6deg);
+  box-shadow: 0 25px 10px rgba(57, 32, 156, 0.15);
+}
+.name .img {
+    overflow: hidden;
+    position:absolute; /* Mantenemos la posición absoluta si quieres que esté flotando en esa esquina */
+    top: 35%;
+    right: 8%;
+    width: 180px;  /* Ancho y alto iguales para un círculo */
+    height: 180px;
+    border-radius: 50%; /* 50% para que sea un círculo perfecto */
+    /* transform: skewY(-8deg); <--- ELIMINADO para quitar el sesgo */
+    
+    /* Agregamos Flexbox para centrar el contenido (la imagen) */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+}
+
+.name .img img {
+    /* Ajustamos el tamaño para que la imagen ocupe el contenedor (o un poco más) */
+    /* Es mejor usar object-fit: cover para que llene el círculo y no se distorsione */
+    width: 100%; 
+    height: 120%;
+    object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
+    
+    /* Si la imagen necesita un desplazamiento manual para centrar un rostro, 
+       podrías usar object-position: center; o ajustar los valores: */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+
+.name .content { 
+    width: 50%;
+    height: 30%;
+    position: absolute;
+    left: 15%;
+
+}
+
+.name .content .p-1 {
+    color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+font-weight: bolder;
+font-size: 64px;
+transform: skewY(6deg);
+text-align:start;
+margin-bottom: 0;
+text-align: 40px unset;
+
+}
+
+.name .content .p-2 {
+    color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+font-size: 30px;
+transform: skewY(6deg);
+text-align: right;
+margin-top: 5%;
+    margin-bottom: 0%;
+    width: 150%;
+    text-align: left;
+}
+
+.info {
+    width: 95%;
+    height: auto;
+background: #2c3e50;
+    margin: 4% auto;
+    padding: 22px;
+    padding-right: 8;
+    border-radius: 20px;
+      box-shadow: 0 25px 10px rgba(57, 32, 156, 0.15);
+   }
+
+   .info .tituloseccion {
+    color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bolder;
+    /* 1. Quitamos el border-bottom del título para que no llegue al borde */
+    border-bottom: none; 
+    
+    /* 2. Añadimos position: relative; para posicionar el delineado debajo */
+    position: relative; 
+    /* 3. Agregamos un padding-bottom para darle espacio a la línea que vamos a crear */
+    padding-bottom: 10px; 
+}
+
+/* 4. Creamos el elemento del delineado */
+.info .tituloseccion::after {
+    content: ''; /* Obligatorio para pseudo-elementos */
+    display: block; /* Hacemos que se comporte como un bloque para poder darle ancho y márgenes */
+    
+    /* Definimos la longitud y la posición */
+    width: 90%; /* <--- ¡Ajusta este porcentaje para controlar el largo del delineado! */
+    margin: 10px auto 0; /* Centra horizontalmente (auto) y define el margen superior (10px) */
+
+    /* Le damos el estilo de la línea */
+    border-bottom: 2px #dbd3cb solid;
+}
+
+.info .tituloinfo {
+   color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+    font-size: larger;
+    display: inline;
+    font-weight: bolder;
+   
+   padding-left: 1%;
+    padding-right: 1%;
+    margin-right: 1px;
+}
+
+.info .infoinfo {
+  
+  /* ← este color define el tono del resaltado */
+  color: #dbd3cb;
+  padding: 6px 12px;
+  border-radius: 6px;
+display: inline;
+  margin: 4px;
+
+
+}
+
+
+.info span {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding-left: 1%;
+    padding-right: 1%;
+    background: #192431;
+    color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+    border-radius: 5px;
+  transition: all 0.3s ease; /* suaviza el cambio */
+  cursor: default;
+
+}
+
+
+.info .tituloseccion1{
+  text-align: center;
+  font-weight: bolder;
+color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+    font-size:xx-large;
+border-bottom: 2px  #dbd3cb solid;
+width: 90%; 
+ margin: 10px auto 0;
+}
+
+
+.info .tituloinfo1{
+ color: #dbd3cb;
+    font-family: "Zalando Sans", sans-serif;
+    font-size: larger;
+   
+    font-weight: bolder;
+ text-align:justify; 
+   padding-left: 1%;
+    padding-right: 1%;
+    margin-right: 1px;
+}
+
+.fin {
+   width: 92%;
+    height: 80% auto;
+color: #02033a;
+font-size: small;
+    font-weight: bolder;
+text-align: center;
+margin-top: -2%;
+
+    
+ 
+}
