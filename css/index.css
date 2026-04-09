@@ -16,7 +16,7 @@ margin: 0;
 /* --- EN INDEX.CSS --- */
 .content {
   transform: skewY(6deg); /* Asegúrate de tener el contra-skew para enderezar el texto */
-  padding-top: 40px;      /* <--- REDUCE ESTO DE 80px A 40px */
+  padding-top: 4px;      /* <--- REDUCE ESTO DE 80px A 40px */
   padding-left: 50px;
   position: relative;     /* Asegura que el z-index funcione */
   z-index: 2;             /* Pone el texto por delante del fondo inclinado */
@@ -53,7 +53,7 @@ margin: 0;
     width: 50%;
     height: 30%;
     position: absolute;
-    left: 15%;
+    left: 3%;
 
 }
 
