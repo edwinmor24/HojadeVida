@@ -6,7 +6,7 @@ margin: 0;
   font-family: "Roboto", sans-serif;}
 
 .name{
-   width: 100%;
+   width: 99%;  
   height: 380px;
   background: #2c3e50;  /* azul grisáceo oscuro */ 
  transform: skewY(-6deg);
