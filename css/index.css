@@ -11,7 +11,7 @@ margin: 0;
   background: #2c3e50;  /* azul grisáceo oscuro */ 
  transform: skewY(-6deg);
  border-radius: 30px;
- 
+
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
 }
 
@@ -156,10 +156,10 @@ display: inline;
     height: auto;
     padding-left: 1%;
     padding-right: 1%;
-    background: #192431;
+    background: #1924318f;
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
-    border-radius: 5px;
+    border-radius:25px;
   transition: all 0.3s ease; /* suaviza el cambio */
   cursor: default;
 
