@@ -14,7 +14,7 @@ margin: 0;
 }
 
 .content {
-    transform: skewY(6deg); /* Esto endereza el texto */
+    transform: skewY(6deg)  translate(3px, 2px) rotate(2deg);
     padding-top: 80px;      /* Ajusta según necesites para centrarlo */
     padding-left: 50px;
 }
