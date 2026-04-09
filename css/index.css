@@ -13,6 +13,12 @@ margin: 0;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
 }
 
+.content {
+    transform: skewY(6deg); /* Esto endereza el texto */
+    padding-top: 80px;      /* Ajusta según necesites para centrarlo */
+    padding-left: 50px;
+}
+
 .name .img {
     position: absolute;   
     top: 29%;
@@ -20,9 +26,11 @@ margin: 0;
     width: 180px;
     height: 180px;
     border-radius: 100%;
-     transform: translate(3px, 2px) rotate(2deg);
+    /* Añadimos skewY(6deg) para enderezar la foto */
+    transform: skewY(6deg) translate(3px, 2px) rotate(2deg); 
     overflow: hidden;
-  box-shadow:  18px 6px rgba(57, 32, 156, 0.15);}
+    box-shadow: 18px 6px rgba(57, 32, 156, 0.15);
+}
     
 
 .name .img img {
