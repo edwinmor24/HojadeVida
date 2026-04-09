@@ -158,11 +158,11 @@ display: inline;
     padding-right: 1%;
     background: #2f6cb782;
     color: #dbd3cb;
+    border-radius: 35px;
     font-family: "Zalando Sans", sans-serif;
-
   transition: all 0.3s ease; /* suaviza el cambio */
   cursor: default;
-border-radius: 35px;
+
 }
 
 
