@@ -159,10 +159,10 @@ display: inline;
     background: #2f6cb782;
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
-    border-radius:  45px;
+
   transition: all 0.3s ease; /* suaviza el cambio */
   cursor: default;
-
+border-radius: 35px;
 }
 
 
