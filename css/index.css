@@ -7,12 +7,20 @@ margin: 0;
 
 .name{
    width: 100%;
-  height: 330px;
+  height: 380px;
   background: #2c3e50;  /* azul grisáceo oscuro */ 
  transform: skewY(-6deg);
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
 }
 
+/* --- EN INDEX.CSS --- */
+.content {
+  transform: skewY(6deg); /* Asegúrate de tener el contra-skew para enderezar el texto */
+  padding-top: 40px;      /* <--- REDUCE ESTO DE 80px A 40px */
+  padding-left: 50px;
+  position: relative;     /* Asegura que el z-index funcione */
+  z-index: 2;             /* Pone el texto por delante del fondo inclinado */
+}
 
 .name .img {
     position: absolute;   
