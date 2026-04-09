@@ -156,10 +156,10 @@ display: inline;
     height: auto;
     padding-left: 1%;
     padding-right: 1%;
-    background: #1924318f;
+    background: #2f6cb782;
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
-    border-radius:25px;
+    border-radius:  45px;
   transition: all 0.3s ease; /* suaviza el cambio */
   cursor: default;
 
