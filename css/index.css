@@ -63,7 +63,7 @@ margin: 0;
     font-weight: bolder;
     font-size: 64px;
     /* ✅ Modificación aquí: Reemplaza skewY(6deg) */
- transform: translate(3px, 2px) rotate(2deg);
+ transform: translate(3px, 2px) rotate;
     text-align:start;
     margin-bottom: 0;
     text-align: 40px unset;
@@ -75,7 +75,7 @@ margin: 0;
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
 font-size: 30px;
-transform: skewY(6deg);
+transform: skewY(6deg) rotate();
 text-align: right;
 margin-top: 5%;
     margin-bottom: 0%;
