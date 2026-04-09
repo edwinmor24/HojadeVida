@@ -13,11 +13,6 @@ margin: 0;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
 }
 
-.content {
-    transform: skewY(6deg)  translate(3px, 2px) rotate(2deg);
-    padding-top: 80px;      /* Ajusta según necesites para centrarlo */
-    padding-left: 50px;
-}
 
 .name .img {
     position: absolute;   
