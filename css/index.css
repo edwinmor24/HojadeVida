@@ -156,14 +156,21 @@ body {
   line-height: 1.6; /* Mejora la lectura del párrafo largo */
 }
 
-/* --- PIE DE PÁGINA --- */
 .fin {
-  width: 100%;
-  height: auto;
-  color: #2c3e50; /* Cambiado a un tono más oscuro para que se lea sobre el gris claro */
-  font-size: small;
-  font-weight: bolder;
+  width: fit-content;           /* Para que la caja se ajuste al texto */
+  margin: 50px auto;            /* Centra la caja y le da espacio arriba */
+  background: #2c3e50;          /* Azul oscuro igual a tus otras secciones */
+  color: #dbd3cb;               /* Color de texto claro */
+  padding: 15px 40px;           /* Espacio interno */
+  border-radius: 20px;          /* Bordes redondeados */
+  box-shadow: 10px 15px rgba(57, 32, 156, 0.249); /* Tu sombra morada */
   text-align: center;
-  margin: 40px 0;
 }
 
+.final {
+  margin: 5px 0;                /* Espacio entre las dos líneas */
+  font-size: 14px;
+  font-weight: bolder;
+  font-family: "Zalando Sans", sans-serif;
+  white-space: nowrap;          /* Evita que el texto se parta */
+}
