@@ -14,7 +14,7 @@
 
     <header class="name">
         <div class="img">
-            <img src="fotoo.jpg" alt="Foto de Perfil">
+            <img src="fotoo.jpg" alt="Foto de Perfil" id="perfilImg">
         </div>   
         <div class="content"> 
             <p class="p-1">Edwin Fabian Mora Fonseca</p>
@@ -131,20 +131,20 @@
     </div>
 
     <script>
-        // Máquina de escribir
+        // 1. Máquina de escribir
         var typed = new Typed('#typed', {
             strings: [
                 '31 Años', 
+                'Tecnico en Construcción', 
                 'Estudiante de ADSO', 
-                'Técnico en Construcción', 
                 'Edwin Mora Fonseca'
             ],
             typeSpeed: 60, backSpeed: 40, loop: true
         });
 
-        // Observer optimizado para que funcione en Celular
+        // 2. Observer para animaciones de entrada (Reveal)
         const observerOptions = {
-            threshold: 0.1, // Se activa apenas se ve el 10% del cuadro
+            threshold: 0.1,
             rootMargin: "0px 0px -50px 0px" 
         };
 
@@ -160,6 +160,16 @@
         }, observerOptions);
 
         document.querySelectorAll('.info, .fin').forEach(el => scrollObserver.observe(el));
+
+        // 3. Efecto Zoom Foto al hacer Scroll
+        const imgPerfil = document.getElementById('perfilImg');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                imgPerfil.classList.add('img-scroll-zoom');
+            } else {
+                imgPerfil.classList.remove('img-scroll-zoom');
+            }
+        });
     </script>
 </body>
 </html>

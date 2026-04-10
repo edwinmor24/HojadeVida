@@ -42,7 +42,18 @@ body {
     border-radius: 100%; transform: skewY(6deg);
     overflow: hidden; border: 5px solid #4969904f;
 }
-.name .img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Animación de la foto */
+.name .img img { 
+    width: 100%; height: 100%; 
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Suavizado */
+}
+
+/* Clase que se activa al bajar scroll */
+.img-scroll-zoom {
+    transform: scale(0.8); /* Se encoge al 80% */
+}
 
 /* =========================================
    3. MÓDULOS (ANIMACIÓN REVEAL)
@@ -52,8 +63,6 @@ body {
     background: #2c3e50; margin: 40px auto;
     padding: 25px; border-radius: 20px;
     box-shadow: 15px 20px rgba(57, 32, 156, 0.2);
-    
-    /* Estado inicial para la animación */
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out, box-shadow 0.5s ease;
@@ -70,17 +79,10 @@ body {
 /* =========================================
    4. FILAS DE DATOS (RESPONSIVO)
    ========================================= */
-.info-row {
-    display: flex; margin-bottom: 12px; padding-left: 5%;
-}
-
-.info .tituloinfo {
-    color: #dbd3cb; font-weight: bolder; width: 280px; flex-shrink: 0;
-}
-
+.info-row { display: flex; margin-bottom: 12px; padding-left: 5%; }
+.info .tituloinfo { color: #dbd3cb; font-weight: bolder; width: 280px; flex-shrink: 0; }
 .info .infoinfo { color: #dbd3cb; flex: 1; }
 
-/* AJUSTE PARA MÓVILES */
 @media (max-width: 768px) {
     .info-row { flex-direction: column; padding-left: 2%; }
     .info .tituloinfo { width: 100%; color: #00ffcc; margin-bottom: 2px; }
