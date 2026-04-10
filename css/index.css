@@ -157,9 +157,9 @@ body {
 }
 
 .fin {
-  display: block !important;    /* Obliga a que se comporte como bloque */
-  width: fit-content !important; /* IMPORTANTE: Si esto sigue en 100%, no verás la caja */
-  margin: 50px auto !important;  /* El 'auto' es lo que lo centra al ser fit-content */
+  display: block ;    /* Obliga a que se comporte como bloque */
+  width: fit-content; /* IMPORTANTE: Si esto sigue en 100%, no verás la caja */
+  margin: 50px auto;  /* El 'auto' es lo que lo centra al ser fit-content */
   background: #2c3e50;           /* Tu color azul oscuro */
   color: #dbd3cb; 
   padding: 15px 40px;
