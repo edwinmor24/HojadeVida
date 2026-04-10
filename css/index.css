@@ -157,20 +157,20 @@ body {
 }
 
 .fin {
-  width: fit-content;           /* Para que la caja se ajuste al texto */
-  margin: 50px auto;            /* Centra la caja y le da espacio arriba */
-  background: #2c3e50;          /* Azul oscuro igual a tus otras secciones */
-  color: #dbd3cb;               /* Color de texto claro */
-  padding: 15px 40px;           /* Espacio interno */
-  border-radius: 20px;          /* Bordes redondeados */
-  box-shadow: 10px 15px rgba(57, 32, 156, 0.249); /* Tu sombra morada */
+  display: block !important;    /* Obliga a que se comporte como bloque */
+  width: fit-content !important; /* IMPORTANTE: Si esto sigue en 100%, no verás la caja */
+  margin: 50px auto !important;  /* El 'auto' es lo que lo centra al ser fit-content */
+  background: #2c3e50;           /* Tu color azul oscuro */
+  color: #dbd3cb; 
+  padding: 15px 40px;
+  border-radius: 20px;
+  box-shadow: 10px 15px rgba(57, 32, 156, 0.249);
   text-align: center;
 }
 
 .final {
-  margin: 5px 0;                /* Espacio entre las dos líneas */
-  font-size: 14px;
+  margin: 2px 0;
+  font-size: 13px;
   font-weight: bolder;
   font-family: "Zalando Sans", sans-serif;
-  white-space: nowrap;          /* Evita que el texto se parta */
 }
