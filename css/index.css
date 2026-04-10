@@ -5,15 +5,21 @@ body {
     margin: 0; padding: 0;
     background: #f4f5f7; color: #2e2e2e;
     font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
+    /* Evita el scroll horizontal por el sobreancho del banner */
+    overflow-x: hidden; 
 }
 
 /* =========================================
-   2. CABECERA (INCLINACIÓN FUERTE -6DEG)
+   2. CABECERA (AJUSTE DE ANCHO TOTAL)
    ========================================= */
 .name {
-    width: 100%; height: 380px;
+    /* Hacemos el banner más ancho y lo centramos con margen negativo 
+       para que la inclinación (-6deg) no deje ver el fondo a los lados */
+    width: 110%; 
+    height: 380px;
     background: #2c3e50;
+    margin-left: -5%; 
+    
     transform: skewY(-6deg);
     border-radius: 0 0 30px 30px;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.4);
@@ -23,8 +29,12 @@ body {
 }
 
 .name .content { 
-    width: 80%; position: absolute; left: 5%; top: 35%;
-    transform: skewY(6deg); /* Endereza el texto */
+    /* Compensamos el 5% extra del margen del padre */
+    width: 80%; 
+    position: absolute; 
+    left: 10%; 
+    top: 35%;
+    transform: skewY(6deg); 
 }
 
 .name .content .p-1 {
@@ -38,10 +48,13 @@ body {
 }
 
 .name .img {
-    position: absolute; top: 30%; right: 5%;
-    width: clamp(120px, 20vw, 180px); height: clamp(120px, 20vw, 180px);
+    position: absolute; 
+    top: 30%; 
+    right: 10%; /* Ajustado para el sobreancho */
+    width: clamp(120px, 20vw, 180px); 
+    height: clamp(120px, 20vw, 180px);
     border-radius: 100%; 
-    transform: skewY(6deg); /* Endereza la foto */
+    transform: skewY(6deg); 
     overflow: hidden; 
     border: 5px solid #4969904f;
 }
@@ -57,13 +70,13 @@ body {
 }
 
 /* =========================================
-   3. MÓDULOS (REDiseñados para SIMETRÍA)
+   3. MÓDULOS (SIMETRÍA Y ALINEACIÓN)
    ========================================= */
 .info {
     width: 85%; 
     max-width: 950px;
     background: #2c3e50; 
-    /* El margen negativo -30px hace que el cuadro encaje con la inclinación superior */
+    /* Ajuste para que encaje visualmente con la cabecera */
     margin: -30px auto 60px; 
     padding: 35px; 
     border-radius: 20px;
@@ -71,7 +84,6 @@ body {
     position: relative;
     z-index: 5;
     
-    /* Estado inicial animación */
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
@@ -82,35 +94,34 @@ body {
     transform: translateY(0); 
 }
 
-/* Resplandor neón simétrico al activarse */
 .info.activo { 
     box-shadow: 0 0 30px rgba(0, 255, 204, 0.25) !important; 
-    border: 1px solid rgba(0, 255, 204, 0.3);
+    border: 1px solid rgba(0, 255, 204, 0.2);
 }
 
 .info .tituloseccion {
     color: #dbd3cb; 
     font-size: 1.8rem; 
     text-align: center;
-    border-bottom: 2px solid rgba(219, 211, 203, 0.3); 
+    border-bottom: 2px solid rgba(219, 211, 203, 0.2); 
     padding-bottom: 15px; 
     margin-bottom: 30px;
 }
 
 /* =========================================
-   4. FILAS DE DATOS (ALINEACIÓN SIMÉTRICA)
+   4. FILAS DE DATOS (ALINEACIÓN PERFECTA)
    ========================================= */
 .info-row { 
     display: flex; 
     margin-bottom: 15px; 
     padding: 0 5%;
-    justify-content: center; /* Ayuda a la simetría central */
+    justify-content: center;
 }
 
 .info .tituloinfo { 
-    color: #00ffcc; /* Resaltado neón para etiquetas */
+    color: #00ffcc; 
     font-weight: bolder; 
-    width: 220px;    /* Ancho fijo para alinear todos los ":" verticalmente */
+    width: 220px;    
     flex-shrink: 0; 
     text-align: right; 
     padding-right: 25px;
@@ -123,7 +134,7 @@ body {
 }
 
 /* =========================================
-   5. CÁPSULAS Y ELEMENTOS FINALES
+   5. CÁPSULAS Y FINAL
    ========================================= */
 .info span {
     display: inline-flex; 
@@ -160,15 +171,13 @@ body {
     transition: 1s;
 }
 
-.fin.aparecer { 
-    opacity: 1; 
-}
+.fin.aparecer { opacity: 1; }
 
 /* AJUSTE PARA MÓVILES */
 @media (max-width: 768px) {
+    .name { width: 120%; margin-left: -10%; height: 320px; }
     .info { width: 92%; padding: 20px; }
     .info-row { flex-direction: column; text-align: center; padding: 0; }
     .info .tituloinfo { width: 100%; text-align: center; padding-right: 0; margin-bottom: 5px; }
     .info .infoinfo { text-align: center; }
-    .name { height: 320px; }
 }
