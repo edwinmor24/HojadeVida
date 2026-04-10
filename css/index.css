@@ -1,209 +1,109 @@
+/* =========================================
+   1. GENERAL
+   ========================================= */
 body { 
-    margin: 0;
-    padding: 0;
-    background: #f4f5f7;  /* Gris muy claro */
-    color: #2e2e2e;       /* Gris oscuro elegante */
+    margin: 0; padding: 0;
+    background: #f4f5f7; color: #2e2e2e;
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
 }
 
 /* =========================================
-   2. CABECERA INCLINADA
+   2. CABECERA (ADAPTADA A CELULAR)
    ========================================= */
 .name {
-    width: 99%;  
-    height: 380px;
-    background: #2c3e50;  /* Azul grisáceo oscuro */ 
+    width: 100%; height: 380px;
+    background: #2c3e50;
     transform: skewY(-6deg);
-    border-radius: 30px;
-    box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
-    position: relative;
-    margin-top: -50px; 
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 25px 10px rgba(57, 32, 156, 0.4);
+    position: relative; margin-top: -50px;
     z-index: 10;
 }
 
 .name .content { 
-    width: 50%;
-    position: absolute;
-    left: 5%;
-    top: 35%;
-    transform: skewY(6deg); /* Endereza el texto */
+    width: 80%; position: absolute; left: 5%; top: 35%;
+    transform: skewY(6deg);
 }
 
 .name .content .p-1 {
-    color: #dbd3cb;
-    font-weight: bolder;
-    font-size: 64px;
-    margin: 0;
+    color: #dbd3cb; font-weight: bolder;
+    font-size: clamp(32px, 8vw, 64px); margin: 0;
 }
 
 .name .content .p-2 {
-    color: #dbd3cb;
-    font-size: 30px;
-    margin-top: 5px;
-    min-height: 40px; /* Evita saltos mientras se escribe */
-}
-
-/* Cursor de la máquina de escribir */
-.typed-cursor {
-    color: #00ffcc;
-    font-size: 30px;
+    color: #dbd3cb; font-size: clamp(18px, 4vw, 30px);
+    margin-top: 10px; min-height: 40px;
 }
 
 .name .img {
-    position: absolute;   
-    top: 29%;
-    right: 9%;
-    width: 180px;
-    height: 180px;
-    border-radius: 100%;
-    transform: skewY(6deg) rotate(2deg); 
-    overflow: hidden;
-    box-shadow: 18px 6px rgba(57, 32, 156, 0.15);
-    border: 5px solid #4969904f;
+    position: absolute; top: 30%; right: 5%;
+    width: clamp(120px, 20vw, 180px); height: clamp(120px, 20vw, 180px);
+    border-radius: 100%; transform: skewY(6deg);
+    overflow: hidden; border: 5px solid #4969904f;
 }
-
-.name .img img {
-    width: 100%; 
-    height: 100%;
-    object-fit: cover;
-}
+.name .img img { width: 100%; height: 100%; object-fit: cover; }
 
 /* =========================================
-   3. BLOQUES DE INFORMACIÓN (MÓDULOS)
+   3. MÓDULOS (ANIMACIÓN REVEAL)
    ========================================= */
 .info {
-    width: 95%;
-    height: auto;
-    background: #2c3e50;
-    margin: 4% auto;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 20px 35px rgba(57, 32, 156, 0.249);
+    width: 90%; max-width: 1000px;
+    background: #2c3e50; margin: 40px auto;
+    padding: 25px; border-radius: 20px;
+    box-shadow: 15px 20px rgba(57, 32, 156, 0.2);
     
-    /* Efecto inicial para el Reveal */
+    /* Estado inicial para la animación */
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out, box-shadow 0.5s ease !important;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out, box-shadow 0.5s ease;
 }
 
-/* Clase que activa el Reveal (entrada suave) */
-.info.aparecer {
-    opacity: 1;
-    transform: translateY(0);
-}
+.info.aparecer { opacity: 1; transform: translateY(0); }
+.info.activo { box-shadow: 0px 10px 40px rgba(0, 255, 204, 0.4) !important; }
 
-/* Clase que se activa con el Scroll (resplandor neón) */
-.info.activo {
-    box-shadow: 0px 10px 40px rgba(0, 255, 204, 0.4) !important; 
-    transform: translateY(-5px);
-}
-
-/* --- Títulos de Sección --- */
 .info .tituloseccion {
-    color: #dbd3cb;
-    font-size: xx-large;
-    text-align: center;
-    font-weight: bolder;
-    position: relative; 
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.info .tituloseccion::after {
-    content: ''; 
-    display: block; 
-    width: 90%; 
-    margin: 10px auto 20px; 
-    border-bottom: 2px #dbd3cb solid;
+    color: #dbd3cb; font-size: 1.8rem; text-align: center;
+    border-bottom: 2px solid #dbd3cb; padding-bottom: 10px; margin-bottom: 20px;
 }
 
 /* =========================================
-   4. FILAS DE DATOS (INFO-ROW)
+   4. FILAS DE DATOS (RESPONSIVO)
    ========================================= */
 .info-row {
-    display: flex; 
-    align-items: flex-start;
-    margin-bottom: 12px;
-    padding-left: 5%;
+    display: flex; margin-bottom: 12px; padding-left: 5%;
 }
 
 .info .tituloinfo {
-    color: #dbd3cb;
-    font-size: 1.1rem;
-    font-weight: bolder;
-    width: 280px;
-    flex-shrink: 0; /* Evita que el título se encoja */
-    margin: 0;
+    color: #dbd3cb; font-weight: bolder; width: 280px; flex-shrink: 0;
 }
 
-.info .infoinfo {
-    color: #dbd3cb;
-    font-size: 1.1rem;
-    margin: 0;
+.info .infoinfo { color: #dbd3cb; flex: 1; }
+
+/* AJUSTE PARA MÓVILES */
+@media (max-width: 768px) {
+    .info-row { flex-direction: column; padding-left: 2%; }
+    .info .tituloinfo { width: 100%; color: #00ffcc; margin-bottom: 2px; }
+    .name { height: 320px; }
 }
 
 /* =========================================
-   5. CÁPSULAS (HABILIDADES/APTITUDES)
+   5. CÁPSULAS Y FINAL
    ========================================= */
 .info span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #4969904f;
-    padding: 8px 25px;
-    border-radius: 35px;
-    color: #dbd3cb;
-    width: fit-content;
-    margin: 8px;
-    transition: all 0.3s ease;
+    display: inline-flex; background: #4969904f;
+    padding: 8px 20px; border-radius: 35px;
+    color: #dbd3cb; margin: 5px; transition: 0.3s;
 }
 
-.info span:hover {
-    background: #00ffcc;
-    color: #2c3e50;
-    transform: scale(1.1);
-}
+.info span:hover { background: #00ffcc; color: #2c3e50; transform: scale(1.1); }
 
-/* =========================================
-   6. SOBRE MÍ
-   ========================================= */
-.info .tituloinfo1 {
-    color: #dbd3cb;
-    font-size: 1.1rem;
-    font-weight: normal;
-    text-align: justify; 
-    padding: 0 30px;
-    line-height: 1.6;
-}
+.info .tituloinfo1 { color: #dbd3cb; text-align: justify; line-height: 1.6; padding: 0 15px; }
 
-/* =========================================
-   7. PIE DE PÁGINA
-   ========================================= */
 .fin {
-    display: block;
-    width: fit-content;
-    margin: 60px auto;
-    background: #2c3e50; 
-    color: #dbd3cb; 
-    padding: 15px 45px;
-    border-radius: 20px;
-    box-shadow: 10px 15px rgba(57, 32, 156, 0.249);
-    text-align: center;
-    
-    /* Efecto Reveal también para el final */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
+    width: fit-content; margin: 50px auto;
+    background: #2c3e50; color: #dbd3cb;
+    padding: 15px 40px; border-radius: 20px;
+    text-align: center; opacity: 0; transition: 1s;
 }
-
-.fin.aparecer {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.final {
-    margin: 5px 0;
-    font-size: 13px;
-    font-weight: bolder;
-}
+.fin.aparecer { opacity: 1; }
