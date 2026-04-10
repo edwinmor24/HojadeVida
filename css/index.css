@@ -1,6 +1,3 @@
-/* =========================================
-   1. ESTILOS BASE Y CUERPO
-   ========================================= */
 body { 
     margin: 0;
     padding: 0;
@@ -21,7 +18,8 @@ body {
     border-radius: 30px;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
     position: relative;
-    margin-top: -50px; /* Ajuste para compensar inclinación */
+    margin-top: -50px; 
+    z-index: 10;
 }
 
 .name .content { 
@@ -34,7 +32,6 @@ body {
 
 .name .content .p-1 {
     color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
     font-weight: bolder;
     font-size: 64px;
     margin: 0;
@@ -42,9 +39,15 @@ body {
 
 .name .content .p-2 {
     color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
     font-size: 30px;
     margin-top: 5px;
+    min-height: 40px; /* Evita saltos mientras se escribe */
+}
+
+/* Cursor de la máquina de escribir */
+.typed-cursor {
+    color: #00ffcc;
+    font-size: 30px;
 }
 
 .name .img {
@@ -77,11 +80,21 @@ body {
     padding: 25px;
     border-radius: 20px;
     box-shadow: 20px 35px rgba(57, 32, 156, 0.249);
-    transition: all 0.5s ease; /* Para la animación de scroll */
+    
+    /* Efecto inicial para el Reveal */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out, box-shadow 0.5s ease !important;
 }
 
-/* Clase que se activa con el Script de Scroll */
-.activo {
+/* Clase que activa el Reveal (entrada suave) */
+.info.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Clase que se activa con el Scroll (resplandor neón) */
+.info.activo {
     box-shadow: 0px 10px 40px rgba(0, 255, 204, 0.4) !important; 
     transform: translateY(-5px);
 }
@@ -89,12 +102,12 @@ body {
 /* --- Títulos de Sección --- */
 .info .tituloseccion {
     color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
     font-size: xx-large;
     text-align: center;
     font-weight: bolder;
     position: relative; 
     padding-bottom: 10px;
+    margin-top: 0;
 }
 
 .info .tituloseccion::after {
@@ -109,8 +122,8 @@ body {
    4. FILAS DE DATOS (INFO-ROW)
    ========================================= */
 .info-row {
-    display: flex;         /* Cambiado a flex para mejor alineación */
-    align-items: center;
+    display: flex; 
+    align-items: flex-start;
     margin-bottom: 12px;
     padding-left: 5%;
 }
@@ -119,7 +132,8 @@ body {
     color: #dbd3cb;
     font-size: 1.1rem;
     font-weight: bolder;
-    width: 280px;         /* Espacio fijo para etiquetas */
+    width: 280px;
+    flex-shrink: 0; /* Evita que el título se encoja */
     margin: 0;
 }
 
@@ -130,40 +144,32 @@ body {
 }
 
 /* =========================================
-   5. CÁPSULAS (EDUCACIÓN/EXPERIENCIA)
+   5. CÁPSULAS (HABILIDADES/APTITUDES)
    ========================================= */
 .info span {
-    display: inline-flex;  /* Clave para alinear horizontalmente */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background: #4969904f;
     padding: 8px 25px;
     border-radius: 35px;
     color: #dbd3cb;
-    width: fit-content;    /* Se ajusta al texto */
-    margin: 10px;
-    font-family: "Zalando Sans", sans-serif;
+    width: fit-content;
+    margin: 8px;
     transition: all 0.3s ease;
 }
 
 .info span:hover {
-    background: #4969907a;
-    transform: scale(1.05);
-}
-
-/* Alineación de textos dentro de la cápsula */
-.info span p {
-    display: inline;
-    margin: 0 8px;
-    white-space: nowrap;
+    background: #00ffcc;
+    color: #2c3e50;
+    transform: scale(1.1);
 }
 
 /* =========================================
-   6. SOBRE MÍ (TEXTO JUSTIFICADO)
+   6. SOBRE MÍ
    ========================================= */
 .info .tituloinfo1 {
     color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
     font-size: 1.1rem;
     font-weight: normal;
     text-align: justify; 
@@ -172,24 +178,32 @@ body {
 }
 
 /* =========================================
-   7. PIE DE PÁGINA (CÁPSULA FINAL)
+   7. PIE DE PÁGINA
    ========================================= */
 .fin {
     display: block;
-    width: fit-content;    /* Clave para que sea una caja */
-    margin: 60px auto;     /* Centrado horizontal */
+    width: fit-content;
+    margin: 60px auto;
     background: #2c3e50; 
     color: #dbd3cb; 
     padding: 15px 45px;
     border-radius: 20px;
     box-shadow: 10px 15px rgba(57, 32, 156, 0.249);
     text-align: center;
-    transition: all 0.5s ease;
+    
+    /* Efecto Reveal también para el final */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.fin.aparecer {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .final {
     margin: 5px 0;
     font-size: 13px;
     font-weight: bolder;
-    font-family: "Zalando Sans", sans-serif;
 }
