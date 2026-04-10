@@ -80,7 +80,7 @@ body {
 
 /* Contenedor para alinear etiqueta y dato */
 .info-row {
-    display: flex;
+    display: inline-block;
     align-items: baseline;
     margin-bottom: 12px;
     padding-left: 5%;
@@ -123,7 +123,7 @@ body {
 
 /* --- BOTONES / SPANS --- */
 .info span {
-  display: inline-block;
+  display: list-item;
   padding: 6px 15px;
   background: #4969904f;
   color: #dbd3cb;
