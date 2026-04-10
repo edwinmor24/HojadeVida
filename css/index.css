@@ -1,205 +1,169 @@
+/* --- RESET GENERAL --- */
 body { 
-margin: 0;
+  margin: 0;
   padding: 0;
   background: #f4f5f7;  /* gris muy claro */
   color: #2e2e2e;       /* gris oscuro elegante */
-  font-family: "Roboto", sans-serif;}
-
-.name{
-   width: 99%;  
-  height: 380px;
-  background: #2c3e50;  /* azul grisáceo oscuro */ 
- transform: skewY(-6deg);
- border-radius: 30px;
-
-    box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
+  font-family: "Roboto", sans-serif;
 }
 
-/* --- EN INDEX.CSS --- */
-.content {
-  transform: skewY(6deg); /* Asegúrate de tener el contra-skew para enderezar el texto */
-  padding-top: 4px;      /* <--- REDUCE ESTO DE 80px A 40px */
-  padding-left: 50px;
-  position: relative;     /* Asegura que el z-index funcione */
-  z-index: 2;             /* Pone el texto por delante del fondo inclinado */
+/* --- CABECERA INCLINADA --- */
+.name {
+  width: 99%;  
+  height: 380px;
+  background: #2c3e50;  /* azul grisáceo oscuro */ 
+  transform: skewY(-6deg);
+  border-radius: 30px;
+  box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
+  position: relative; /* Para que los hijos absolutos funcionen bien */
 }
 
 .name .img {
-    position: absolute;   
-    top: 29%;
-    right: 9%;
-    width: 180px;
-    height: 180px;
-    border-radius: 100%;
-    /* Añadimos skewY(6deg) para enderezar la foto */
-    transform: skewY(6deg) translate(3px, 2px) rotate(2deg); 
-    overflow: hidden;
-    box-shadow: 18px 6px rgba(57, 32, 156, 0.15);
+  position: absolute;   
+  top: 29%;
+  right: 9%;
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  /* Enderezamos la foto respecto al fondo inclinado */
+  transform: skewY(6deg) translate(3px, 2px) rotate(2deg); 
+  overflow: hidden;
+  box-shadow: 18px 6px rgba(57, 32, 156, 0.15);
 }
-    
 
 .name .img img {
-    /* Ajustamos el tamaño para que la imagen ocupe el contenedor (o un poco más) */
-    /* Es mejor usar object-fit: cover para que llene el círculo y no se distorsione */
-    width: 100%; 
-    height: 120%;
-    object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
-    
-    /* Si la imagen necesita un desplazamiento manual para centrar un rostro, 
-       podrías usar object-position: center; o ajustar los valores: */
-    object-position: center; /* Centra la imagen dentro del contenedor */
+  width: 100%; 
+  height: 120%;
+  object-fit: cover; 
+  object-position: center; 
 }
 
-
 .name .content { 
-    width: 50%;
-    height: 30%;
-    position: absolute;
-    left: 3%;
-
+  width: 50%;
+  height: 30%;
+  position: absolute;
+  left: 3%;
+  top: 15%; /* Ajustado para mejor visibilidad */
 }
 
 .name .content .p-1 {
-    color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-weight: bolder;
-    font-size: 64px;
-    /* ✅ Modificación aquí: Reemplaza skewY(6deg) */
- transform: translate(3px, 2px) rotate;
-    text-align:start;
-    margin-bottom: 0;
-    text-align: 40px unset;
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-weight: bolder;
+  font-size: 64px;
+  /* Enderezamos el texto */
+  transform: skewY(6deg) translate(3px, 2px);
+  text-align: start;
+  margin-bottom: 0;
 }
-
-
 
 .name .content .p-2 {
-    color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-font-size: 30px;
-transform: skewY(6deg) rotate();
-text-align: right;
-margin-top: 5%;
-    margin-bottom: 0%;
-    width: 150%;
-    text-align: left;
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-size: 30px;
+  transform: skewY(6deg);
+  margin-top: 5px;
+  width: 150%;
+  text-align: left;
 }
 
+/* --- BLOQUES DE INFORMACIÓN (LA MAGIA) --- */
 .info {
-    width: 95%;
-    height: auto;
-background: #2c3e50;
-    margin: 4% auto;
-    padding: 22px;
-    padding-right: 8;
-    border-radius: 20px;
-     
-      box-shadow:  20px 35px rgba(57, 32, 156, 0.249);
-   }
-
-   .info .tituloseccion {
-    color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-size: xx-large;
-    text-align: center;
-    font-weight: bolder;
-    /* 1. Quitamos el border-bottom del título para que no llegue al borde */
-    border-bottom: none; 
-    
-    /* 2. Añadimos position: relative; para posicionar el delineado debajo */
-    position: relative; 
-    /* 3. Agregamos un padding-bottom para darle espacio a la línea que vamos a crear */
-    padding-bottom: 10px; 
+  width: 95%;
+  height: auto;
+  background: #2c3e50;
+  margin: 4% auto;
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: 20px 35px rgba(57, 32, 156, 0.249);
 }
 
-/* 4. Creamos el elemento del delineado */
-.info .tituloseccion::after {
-    content: ''; /* Obligatorio para pseudo-elementos */
-    display: block; /* Hacemos que se comporte como un bloque para poder darle ancho y márgenes */
-    
-    /* Definimos la longitud y la posición */
-    width: 90%; /* <--- ¡Ajusta este porcentaje para controlar el largo del delineado! */
-    margin: 10px auto 0; /* Centra horizontalmente (auto) y define el margen superior (10px) */
-
-    /* Le damos el estilo de la línea */
-    border-bottom: 2px #dbd3cb solid;
+/* Contenedor para alinear etiqueta y dato */
+.info-row {
+  display: flex;
+  align-items: baseline; 
+  margin-bottom: 12px;
 }
 
 .info .tituloinfo {
-   color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-size: larger;
-    display: inline;
-    font-weight: bolder;
-   
-   padding-left: 1%;
-    padding-right: 1%;
-    margin-right: 1px;
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-size: larger;
+  font-weight: bolder;
+  width: 230px;        /* Ancho de la columna de etiquetas */
+  flex-shrink: 0;      
+  margin: 0;           
+  display: block;      
 }
 
 .info .infoinfo {
-  
-  /* ← este color define el tono del resaltado */
   color: #dbd3cb;
-  padding: 6px 12px;
-  border-radius: 6px;
-display: inline;
-  margin: 4px;
-
-
+  margin: 0;           
+  display: block;
+  flex-grow: 1;        
 }
 
-
-.info span {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    padding-left: 1%;
-    padding-right: 1%;
-    background: #4969904f;
-    color: #dbd3cb;
-    border-radius: 35px;
-    font-family: "Zalando Sans", sans-serif;
-  transition: all 0.3s ease; /* suaviza el cambio */
-  cursor: default;
-
-}
-
-
-.info .tituloseccion1{
+/* --- TÍTULOS DE SECCIÓN --- */
+.info .tituloseccion {
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-size: xx-large;
   text-align: center;
   font-weight: bolder;
-color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-size:xx-large;
-border-bottom: 2px  #dbd3cb solid;
-width: 90%; 
- margin: 10px auto 0;
+  position: relative; 
+  padding-bottom: 10px; 
 }
 
-
-.info .tituloinfo1{
- color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-size: larger;
-   
-    font-weight: bolder;
- text-align:justify; 
-   padding-left: 1%;
-    padding-right: 1%;
-    margin-right: 1px;
+.info .tituloseccion::after {
+  content: ''; 
+  display: block; 
+  width: 90%; 
+  margin: 10px auto 0; 
+  border-bottom: 2px #dbd3cb solid;
 }
 
+/* --- BOTONES / SPANS --- */
+.info span {
+  display: inline-block;
+  padding: 6px 15px;
+  background: #4969904f;
+  color: #dbd3cb;
+  border-radius: 35px;
+  font-family: "Zalando Sans", sans-serif;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* --- SOBRE MÍ --- */
+.info .tituloseccion1 {
+  text-align: center;
+  font-weight: bolder;
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-size: xx-large;
+  border-bottom: 2px #dbd3cb solid;
+  width: 90%; 
+  margin: 10px auto 20px;
+}
+
+.info .tituloinfo1 {
+  color: #dbd3cb;
+  font-family: "Zalando Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: justify; 
+  padding: 0 20px;
+  line-height: 1.6; /* Mejora la lectura del párrafo largo */
+}
+
+/* --- PIE DE PÁGINA --- */
 .fin {
-   width: 92%;
-    height: 80% auto;
-color: #02033a;
-font-size: small;
-    font-weight: bolder;
-text-align: center;
-margin-top: -2%;
-
-    
- 
-
+  width: 100%;
+  height: auto;
+  color: #2c3e50; /* Cambiado a un tono más oscuro para que se lea sobre el gris claro */
+  font-size: small;
+  font-weight: bolder;
+  text-align: center;
+  margin: 40px 0;
 }
+
