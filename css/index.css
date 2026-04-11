@@ -1,6 +1,3 @@
-/* =========================================
-   1. GENERAL
-   ========================================= */
 body { 
     margin: 0; padding: 0;
     background: #f4f5f7; color: #2e2e2e;
@@ -9,117 +6,124 @@ body {
 }
 
 /* =========================================
-   2. CABECERA (ADAPTADA A CELULAR)
+   2. CABECERA (ADAPTADA A PC Y MÓVIL)
    ========================================= */
 .name {
-    width: 100%; height: 380px;
+    width: 100%; height: 350px;
     background: #2c3e50;
-    transform: skewY(-6deg);
+    transform: skewY(-3deg); /* Menos inclinado para PC */
     border-radius: 0 0 30px 30px;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.4);
-    position: relative; margin-top: -50px;
+    position: relative; margin-top: -30px;
     z-index: 10;
 }
 
+/* Contenedor interno para que el contenido no se pegue a los bordes en monitores pro */
+.header-inner {
+    max-width: 1200px; margin: 0 auto;
+    position: relative; height: 100%;
+    transform: skewY(3deg); /* Compensa el skew del padre */
+}
+
 .name .content { 
-    width: 80%; position: absolute; left: 5%; top: 35%;
-    transform: skewY(6deg);
+    position: absolute; left: 5%; top: 40%;
 }
 
 .name .content .p-1 {
     color: #dbd3cb; font-weight: bolder;
-    font-size: clamp(32px, 8vw, 64px); margin: 0;
+    font-size: clamp(28px, 5vw, 55px); margin: 0;
 }
 
 .name .content .p-2 {
-    color: #dbd3cb; font-size: clamp(18px, 4vw, 30px);
+    color: #dbd3cb; font-size: clamp(16px, 3vw, 26px);
     margin-top: 10px; min-height: 40px;
 }
 
 .name .img {
-    position: absolute; top: 30%; right: 5%;
-    width: clamp(120px, 20vw, 180px); height: clamp(120px, 20vw, 180px);
-    border-radius: 100%; transform: skewY(6deg);
+    position: absolute; top: 35%; right: 5%;
+    width: clamp(130px, 15vw, 200px); height: clamp(130px, 15vw, 200px);
+    border-radius: 100%; 
     overflow: hidden; border: 5px solid #4969904f;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .name .img img { 
     width: 100%; height: 100%; 
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s ease;
 }
 
-.img-scroll-zoom {
-    transform: scale(0.8);
-}
+.img-scroll-zoom { transform: scale(0.85); }
 
 /* =========================================
-   3. MÓDULOS (ANIMACIÓN REVEAL)
+   3. CONTENEDOR PRINCIPAL
    ========================================= */
+.main-container {
+    width: 90%; max-width: 1100px;
+    margin: 0 auto; padding-top: 20px;
+}
+
 .info {
-    width: 90%; max-width: 1000px;
-    background: #2c3e50; margin: 40px auto;
-    padding: 25px; border-radius: 20px;
-    box-shadow: 15px 20px rgba(57, 32, 156, 0.2);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out, box-shadow 0.5s ease;
+    background: #2c3e50; margin: 30px auto;
+    padding: 30px; border-radius: 20px;
+    box-shadow: 10px 15px rgba(57, 32, 156, 0.2);
+    opacity: 0; transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
 .info.aparecer { opacity: 1; transform: translateY(0); }
-.info.activo { box-shadow: 0px 10px 40px rgba(0, 255, 204, 0.4) !important; }
+.info.activo { box-shadow: 0px 10px 40px rgba(0, 255, 204, 0.2) !important; }
 
 .info .tituloseccion {
-    color: #dbd3cb; font-size: 1.8rem; text-align: center;
-    border-bottom: 2px solid #dbd3cb; padding-bottom: 10px; margin-bottom: 20px;
+    color: #dbd3cb; font-size: 1.6rem; text-align: center;
+    border-bottom: 2px solid #4969904f; padding-bottom: 10px; margin-bottom: 25px;
 }
 
 /* =========================================
-   4. FILAS DE DATOS (RESPONSIVO Y SIMÉTRICO)
+   4. FILAS DE DATOS
    ========================================= */
-.info-row { display: flex; margin-bottom: 12px; padding-left: 5%; }
+.info-row { display: flex; align-items: baseline; margin-bottom: 15px; }
 
-/* ESTA ES LA CLAVE DE LA SIMETRÍA CON TU COLOR ORIGINAL */
 .info .tituloinfo { 
-    color: #dbd3cb; /* RESTAURADO: Color gris crema original */
-    font-weight: bolder; 
-    width: 280px;    /* Ancho fijo para alinear los ":" verticalmente */
-    flex-shrink: 0; /* Evita que se encoja */
-    text-align: right; /* Alinea el texto a la derecha para que los ":" queden juntos */
-    padding-right: 25px; /* Espacio entre el ":" y el dato */
+    color: #dbd3cb; font-weight: 700; 
+    width: 220px; flex-shrink: 0; 
+    text-align: right; padding-right: 20px;
 }
 
-.info .infoinfo { color: #dbd3cb; flex: 1; }
-
-@media (max-width: 768px) {
-    .info-row { flex-direction: column; padding-left: 2%; }
-    .info .tituloinfo { 
-        width: 100%; 
-        color: #dbd3cb; /* Mantenemos el color original en móvil */
-        text-align: left; /* Volvemos a la izquierda en móvil */
-        padding-right: 0;
-        margin-bottom: 2px; 
-    }
-    .name { height: 320px; }
-}
+.info .infoinfo { color: #dbd3cb; flex: 1; font-weight: 300; }
 
 /* =========================================
-   5. CÁPSULAS Y FINAL
+   5. RESPONSIVO (TABLET / CELULAR)
    ========================================= */
+@media (max-width: 768px) {
+    .name { transform: skewY(-6deg); height: 320px; }
+    .header-inner { transform: skewY(6deg); }
+    
+    .info-row { flex-direction: column; padding-left: 0; }
+    .info .tituloinfo { 
+        width: 100%; text-align: left; 
+        margin-bottom: 4px; font-size: 0.9rem;
+    }
+    .name .img { top: 25%; right: 5%; }
+}
+
+/* CÁPSULAS */
+.tag-container { padding-left: 20px; }
 .info span {
     display: inline-flex; background: #4969904f;
-    padding: 8px 20px; border-radius: 35px;
+    padding: 8px 18px; border-radius: 35px;
     color: #dbd3cb; margin: 5px; transition: 0.3s;
+    font-size: 0.9rem;
 }
+.info span:hover { background: #00ffcc; color: #2c3e50; transform: translateY(-3px); }
 
-.info span:hover { background: #00ffcc; color: #2c3e50; transform: scale(1.1); }
-
-.info .tituloinfo1 { color: #dbd3cb; text-align: justify; line-height: 1.6; padding: 0 15px; }
+.info .tituloinfo1 { color: #dbd3cb; text-align: justify; line-height: 1.7; padding: 0 10px; }
 
 .fin {
-    width: fit-content; margin: 50px auto;
+    width: fit-content; margin: 60px auto;
     background: #2c3e50; color: #dbd3cb;
-    padding: 15px 40px; border-radius: 20px;
-    text-align: center; opacity: 0; transition: 1s;
+    padding: 20px 50px; border-radius: 20px;
+    text-align: center; opacity: 0;
 }
 .fin.aparecer { opacity: 1; }
+.final { margin: 5px 0; font-size: 0.85rem; }
