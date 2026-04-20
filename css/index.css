@@ -40,16 +40,14 @@ body {
 }
 
 .name .content .p-2 {
-    /* Fuente cyber/técnica */
-    font-family: 'Share Tech Mono', monospace; 
-    color: #dbd3cb; 
-    font-weight: 500; 
+    color: #d1d1d1;
+    font-family: "Arimo", sans-serif;
     font-size: 28px;
-    text-align: left;
+    font-weight: 300;
     margin-top: 20px;
-    width: 150%;
-    /* Efecto resplandor neón */
-    text-shadow: 0 0 5px rgba(219, 211, 203, 0.5), 0 0 10px rgba(219, 211, 203, 0.2);
+    text-align: left;
+    
+    /* Aseguramos que el cursor y el texto no se muevan al enderezar */
     display: flex;
     align-items: center;
 }
