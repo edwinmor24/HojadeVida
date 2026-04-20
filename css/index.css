@@ -13,7 +13,7 @@ body {
     transform: skewY(-6deg);
     border-radius: 30px;
     box-shadow: 0 25px 10px rgba(57, 32, 156, 0.479);
-    position: relative; /* Base para posicionamiento absoluto */
+    position: relative; 
     margin: 40px auto 0;
     overflow: hidden;
 }
@@ -24,7 +24,6 @@ body {
     position: absolute;
     left: 50px;
     top: 50%;
-    /* Contra-skew para enderezar el texto y centrado vertical */
     transform: translateY(-50%) skewY(6deg); 
     z-index: 2;
 }
@@ -46,8 +45,6 @@ body {
     font-weight: 300;
     margin-top: 20px;
     text-align: left;
-    
-    /* Aseguramos que el cursor y el texto no se muevan al enderezar */
     display: flex;
     align-items: center;
 }
@@ -60,7 +57,6 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    /* Contra-skew para enderezar la foto y centrado vertical */
     transform: translateY(-50%) skewY(6deg); 
     overflow: hidden;
     box-shadow: 18px 6px rgba(57, 32, 156, 0.15);
@@ -104,24 +100,34 @@ body {
     border-bottom: 2px #dbd3cb solid;
 }
 
+/* --- NUEVA ORGANIZACIÓN DE CERTIFICADOS --- */
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(219, 211, 203, 0.15); /* Separador sutil */
+}
+
 .info .tituloinfo {
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
-    font-size: larger;
-    display: inline;
+    font-size: 14px;
     font-weight: bolder;
-    padding-left: 1%;
-    padding-right: 1%;
+    margin-right: 10px;
 }
 
 .info .infoinfo {
     color: #dbd3cb;
-    padding: 6px 12px;
-    border-radius: 6px;
-    display: inline;
-    margin: 4px;
+    font-family: "Arimo", sans-serif;
+    font-size: 18px;
+    margin: 0;
+    flex-grow: 1; /* Empuja el botón a la derecha */
 }
 
+/* --- BOTÓN Y SPANS --- */
 .info span {
     display: inline-block;
     width: auto;
@@ -136,6 +142,28 @@ body {
     margin: 2px;
 }
 
+.btn-mini {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #2f6cb782;
+    color: #dbd3cb;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Zalando Sans", sans-serif;
+    border-radius: 45px;
+    border: 1px solid #dbd3cb;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-mini:hover {
+    background: #dbd3cb;
+    color: #2c3e50;
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+
+/* --- OTROS ESTILOS EXISTENTES --- */
 .info .tituloseccion1 {
     text-align: center;
     font-weight: bolder;
@@ -163,24 +191,4 @@ body {
     font-weight: bolder;
     text-align: center;
     margin: 20px auto;
-}
-.btn-mini {
-    display: inline-block;
-    padding: 2px 10px;
-    background: #2f6cb782; /* El mismo azul de tus spans actuales */
-    color: #dbd3cb;
-    text-decoration: none;
-    font-size: 12px;
-    font-family: "Zalando Sans", sans-serif;
-    border-radius: 45px;
-    border: 1px solid #dbd3cb;
-    transition: all 0.3s ease;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.btn-mini:hover {
-    background: #dbd3cb;
-    color: #2c3e50;
-    cursor: pointer;
 }
