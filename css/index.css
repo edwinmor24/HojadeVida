@@ -72,16 +72,17 @@ margin: 0;
 }
 
 
-
 .name .content .p-2 {
-    color: #dbd3cb;
-    font-family: "Zalando Sans", sans-serif;
-    font-size: 30px;
-     /* Quité el rotate() vacío para evitar errores */
-    margin-top: 5%;
-    margin-bottom: 0%;
-    width: 150%;
-    text-align: left; /* Mantenemos el inicio a la izquierda */
+    color: #d1d1d1;
+    font-family: "Arimo", sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: left;
+    
+    /* Aseguramos que el cursor y el texto no se muevan al enderezar */
+    display: flex;
+    align-items: center;
 }
 
 .info {
