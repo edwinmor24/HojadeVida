@@ -201,20 +201,55 @@
     </div>
 
     <script>
-        const textoCompleto = "30 Años, cursando Tecnologo en Analisis y Desarrollo de Software";
-        const elemento = document.getElementById("maquina-escribir");
-        let indice = 0;
+    const frases = [
+        "31 Años",
+        "Cursando Tecnologo en ADSO",
+        "Futuro Desarrollador"
+    ];
+    
+    const elemento = document.getElementById("maquina-escribir");
+    let fraseIndex = 0;
+    let charIndex = 0;
+    let esBorrando = false;
 
-        function maquinaDeEscribir() {
-            if (indice < textoCompleto.length) {
-                elemento.textContent += textoCompleto.charAt(indice);
-                indice++;
-                setTimeout(maquinaDeEscribir, 60); 
-            }
+    function animarTexto() {
+        const fraseActual = frases[fraseIndex];
+        
+        if (esBorrando) {
+            // Borra un carácter
+            elemento.textContent = fraseActual.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            // Escribe un carácter
+            elemento.textContent = fraseActual.substring(0, charIndex + 1);
+            charIndex++;
         }
 
-        window.onload = maquinaDeEscribir;
-    </script>
+        // Manejo de velocidades
+        let velocidad = 100; // Velocidad normal de escritura
+
+        if (esBorrando) {
+            velocidad /= 2; // Borra más rápido de lo que escribe
+        }
+
+        // Si terminó de escribir la frase completa
+        if (!esBorrando && charIndex === fraseActual.length) {
+            velocidad = 2000; // Se queda quieto 2 segundos para que se lea
+            esBorrando = true;
+        } 
+        // Si terminó de borrar la frase completa
+        else if (esBorrando && charIndex === 0) {
+            esBorrando = false;
+            fraseIndex = (fraseIndex + 1) % frases.length; // Pasa a la siguiente frase (ciclo infinito)
+            velocidad = 500; // Pequeña pausa antes de empezar la siguiente
+        }
+
+        setTimeout(animarTexto, velocidad);
+    }
+
+    // Inicia la animación apenas cargue la página
+    window.onload = animarTexto;
+</script>
 </body>
 </html>
 
