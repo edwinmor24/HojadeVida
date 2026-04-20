@@ -76,13 +76,12 @@ margin: 0;
 .name .content .p-2 {
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
-font-size: 30px;
-transform: skewY(6deg) rotate();
-text-align: right;
-margin-top: 5%;
+    font-size: 30px;
+    transform: skewY(6deg); /* Quité el rotate() vacío para evitar errores */
+    margin-top: 5%;
     margin-bottom: 0%;
     width: 150%;
-    text-align: left;
+    text-align: left; /* Mantenemos el inicio a la izquierda */
 }
 
 .info {
