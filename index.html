@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoja De Vida EM</title>
-    <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="name">
@@ -65,16 +65,15 @@
         <p class="tituloinfo">Cargo:</p>
         <p class="infoinfo">Mantenimiento</p>
         <br><br>
-        
-            <p class="tituloinfo">Nombre Empresa:</p>
-            <p class="infoinfo">MacroRepuestos y Licuadoras</p>
-            <p class="tituloinfo">Descripcion:</p>
-            <p class="infoinfo">Realizar inventario de entrada y salida de mercancia por medio de tablas EXCEL.</p>
-            <p class="tituloinfo">Año:</p>
-            <p class="infoinfo">2024(temporalmente)</p>
-            <p class="tituloinfo">Cargo:</p>
-            <p class="infoinfo">Inventario</p>
-             <br><br>
+        <p class="tituloinfo">Nombre Empresa:</p>
+        <p class="infoinfo">MacroRepuestos y Licuadoras</p>
+        <p class="tituloinfo">Descripcion:</p>
+        <p class="infoinfo">Realizar inventario de entrada y salida de mercancia por medio de tablas EXCEL.</p>
+        <p class="tituloinfo">Año:</p>
+        <p class="infoinfo">2024(temporalmente)</p>
+        <p class="tituloinfo">Cargo:</p>
+        <p class="infoinfo">Inventario</p>
+        <br><br>
         <p class="tituloinfo">Nombre Empresa:</p>
         <p class="infoinfo">Independiente</p>
         <p class="tituloinfo">Año:</p>
@@ -215,40 +214,33 @@
         const fraseActual = frases[fraseIndex];
         
         if (esBorrando) {
-            // Borra un carácter
             elemento.textContent = fraseActual.substring(0, charIndex - 1);
             charIndex--;
         } else {
-            // Escribe un carácter
             elemento.textContent = fraseActual.substring(0, charIndex + 1);
             charIndex++;
         }
 
-        // Manejo de velocidades
-        let velocidad = 100; // Velocidad normal de escritura
+        let velocidad = 100;
 
         if (esBorrando) {
-            velocidad /= 2; // Borra más rápido de lo que escribe
+            velocidad /= 2;
         }
 
-        // Si terminó de escribir la frase completa
         if (!esBorrando && charIndex === fraseActual.length) {
-            velocidad = 2000; // Se queda quieto 2 segundos para que se lea
+            velocidad = 2000;
             esBorrando = true;
         } 
-        // Si terminó de borrar la frase completa
         else if (esBorrando && charIndex === 0) {
             esBorrando = false;
-            fraseIndex = (fraseIndex + 1) % frases.length; // Pasa a la siguiente frase (ciclo infinito)
-            velocidad = 500; // Pequeña pausa antes de empezar la siguiente
+            fraseIndex = (fraseIndex + 1) % frases.length;
+            velocidad = 500;
         }
 
         setTimeout(animarTexto, velocidad);
     }
 
-    // Inicia la animación apenas cargue la página
     window.onload = animarTexto;
-</script>
+    </script>
 </body>
 </html>
-
