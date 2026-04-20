@@ -77,7 +77,7 @@ margin: 0;
     color: #dbd3cb;
     font-family: "Zalando Sans", sans-serif;
     font-size: 30px;
-    transform: skewY(6deg); /* Quité el rotate() vacío para evitar errores */
+     /* Quité el rotate() vacío para evitar errores */
     margin-top: 5%;
     margin-bottom: 0%;
     width: 150%;
